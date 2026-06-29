@@ -108,7 +108,10 @@ export function ProductCatalog() {
     <div className="space-y-6" data-testid="product-catalog">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div className="w-full max-w-md">
-          <label htmlFor="search" className="mb-2 block text-sm font-medium">
+          <label
+            htmlFor="search"
+            className="mb-2 block text-sm font-medium text-zinc-700"
+          >
             Buscar produtos
           </label>
           <Input
