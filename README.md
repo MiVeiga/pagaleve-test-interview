@@ -2,6 +2,8 @@
 
 Mini loja virtual — teste técnico Senior Next.js App Router com TypeScript strict, Tailwind CSS, TanStack Query, Zustand e GraphQL ([Platzi Fake Store API](https://fakeapi.platzi.com/)).
 
+**Demo (Vercel):** [https://pagaleve-test-interview.vercel.app](https://pagaleve-test-interview.vercel.app)
+
 ---
 
 ## Início rápido
@@ -12,7 +14,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Acesse [http://localhost:3000](http://localhost:3000).
+Acesse [http://localhost:3000](http://localhost:3000) ou a [demo na Vercel](https://pagaleve-test-interview.vercel.app).
 
 ### Credenciais de teste
 
