@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation } from "@tanstack/react-query";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 import { logger } from "@/core/logger";
 
@@ -10,7 +10,6 @@ import type { LoginCredentials } from "../types";
 import { useAuth } from "./use-auth";
 
 export function useLogin() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const { setSession } = useAuth();
 
@@ -21,7 +20,7 @@ export function useLogin() {
       logger.info("User logged in", { userId: user.id, email: user.email });
 
       const redirectTo = searchParams.get("redirect") ?? "/";
-      router.push(redirectTo);
+      window.location.assign(redirectTo);
     },
   });
 }

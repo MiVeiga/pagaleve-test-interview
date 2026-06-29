@@ -11,18 +11,13 @@ function isPublicPath(pathname: string): boolean {
 }
 
 function getValidAuthToken(request: NextRequest): string | undefined {
-  const rawToken = request.cookies.get(AUTH_COOKIE_NAME)?.value;
+  const token = request.cookies.get(AUTH_COOKIE_NAME)?.value;
 
-  if (!rawToken) {
+  if (!token) {
     return undefined;
   }
 
-  try {
-    const token = decodeURIComponent(rawToken);
-    return isAuthTokenValid(token) ? token : undefined;
-  } catch {
-    return undefined;
-  }
+  return isAuthTokenValid(token) ? token : undefined;
 }
 
 function clearAuthCookie(response: NextResponse): void {
@@ -30,6 +25,7 @@ function clearAuthCookie(response: NextResponse): void {
     path: "/",
     maxAge: 0,
     sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
   });
 }
 

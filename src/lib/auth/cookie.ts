@@ -15,7 +15,7 @@ export function setAuthCookie(token: string): void {
     return;
   }
 
-  document.cookie = `${AUTH_COOKIE_NAME}=${encodeURIComponent(token)}; ${buildCookieAttributes(TOKEN_MAX_AGE_SECONDS)}`;
+  document.cookie = `${AUTH_COOKIE_NAME}=${token}; ${buildCookieAttributes(TOKEN_MAX_AGE_SECONDS)}`;
 }
 
 export function getAuthCookie(): string | null {
@@ -29,7 +29,7 @@ export function getAuthCookie(): string | null {
     const [name, ...valueParts] = cookie.trim().split("=");
     if (name === AUTH_COOKIE_NAME) {
       const value = valueParts.join("=");
-      return value ? decodeURIComponent(value) : null;
+      return value || null;
     }
   }
 

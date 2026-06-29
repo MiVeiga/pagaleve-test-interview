@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/design-system";
-import { LoginForm } from "@/features/auth";
+import { LoginForm, LoginRedirect } from "@/features/auth";
 
 function LoginFormFallback() {
   return <div className="h-64 animate-pulse rounded-md bg-zinc-100" />;
@@ -25,6 +25,7 @@ export default function LoginPage() {
         </CardHeader>
         <CardContent>
           <Suspense fallback={<LoginFormFallback />}>
+            <LoginRedirect />
             <LoginForm />
           </Suspense>
         </CardContent>
